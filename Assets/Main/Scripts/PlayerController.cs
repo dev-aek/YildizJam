@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask layer;
     public float groudRadius;
 
-    public ParticleSystem dust;
+   // public ParticleSystem dust;
     public GameObject prefabObject;
     private void Awake()
     {
@@ -52,12 +52,12 @@ public class PlayerController : MonoBehaviour
 
             Vector3 moveDir = Quaternion.Euler(10f, targetAngle, 0f) * Vector3.forward;
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
-            dust.Play();
+            //dust.Play();
             
         }
         else
         {
-            dust.Stop();
+            //dust.Stop();
         }
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt((jumpHeight * 10) * -2f * gravity);
-            dust.Stop();
+            //dust.Stop();
         }
 
         if (velocity.y > -20)
