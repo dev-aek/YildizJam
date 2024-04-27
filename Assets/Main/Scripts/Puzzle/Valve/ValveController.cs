@@ -1,4 +1,4 @@
-using System;
+using Cinemachine;
 using EventBus;
 using EventBus.Events;
 using UnityEngine;
@@ -11,6 +11,8 @@ namespace Puzzle.Valve
         [Header("Components")]
         [SerializeField] private Transform valve;
         [SerializeField] private Transform indicator;
+        [SerializeField] private CinemachineVirtualCamera virtualCamera;
+        [SerializeField] private PlayerInput playerInput;
 
         [Space(10)]
         [Header("Properties")]
@@ -20,24 +22,32 @@ namespace Puzzle.Valve
         [SerializeField] private float maxAngle;
         [SerializeField] private float rotationSpeed = 5f;
         
-        private bool _canRotate = true;
+        private bool _canRotate;
         private Vector2 _rotationInput;
         private bool _valveCompleted;
+        private CinemachineBrain _cinemachineBrain;
 
-        public bool CanRotate
+        private void Awake()
         {
-            get => _canRotate;
-            set => _canRotate = value;
+            _cinemachineBrain = UnityEngine.Camera.main.GetComponent<CinemachineBrain>();
+        }
+
+        public void SetInteract(bool value)
+        {
+            _canRotate = value;
+            virtualCamera.Priority = value ? 11 : 9;
+            playerInput.enabled = value;
         }
         
         public void OnRotate(InputAction.CallbackContext obj)
         {
+            if(_cinemachineBrain.IsBlending) return;
             _rotationInput = obj.ReadValue<Vector2>();
 
             if (obj.phase == InputActionPhase.Canceled)
             {
                 float angleDifference = Quaternion.Angle(valve.localRotation, Quaternion.Euler(0, correctAngle, 0));
-                Debug.Log("Angle Difference: " + angleDifference);
+
                 if (angleDifference <= tolerance && !_valveCompleted)
                 {
                     _valveCompleted = true;
