@@ -299,12 +299,12 @@ PrefabInstance:
     - target: {fileID: 8418385259338309480, guid: d65ef3d08c3e5314bb1da683ff53fbaa,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000008515015
+      value: -0.000000008515014
       objectReference: {fileID: 0}
     - target: {fileID: 8418385259338309480, guid: d65ef3d08c3e5314bb1da683ff53fbaa,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000012285872
+      value: 0.000000001228587
       objectReference: {fileID: 0}
     - target: {fileID: 8764205073198153007, guid: d65ef3d08c3e5314bb1da683ff53fbaa,
         type: 3}
@@ -359,12 +359,12 @@ PrefabInstance:
     - target: {fileID: 9056751516183592736, guid: d65ef3d08c3e5314bb1da683ff53fbaa,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000017017443
+      value: 0.000000017017443
       objectReference: {fileID: 0}
     - target: {fileID: 9056751516183592736, guid: d65ef3d08c3e5314bb1da683ff53fbaa,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000025428721
+      value: -0.0000000025428721
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -598,6 +598,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6615641066563284705, guid: d4b9f37e8be44c44d96e7c1c0e61cdc0,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615641066563284705, guid: d4b9f37e8be44c44d96e7c1c0e61cdc0,
+        type: 3}
       propertyPath: controller
       value: 
       objectReference: {fileID: 544490478}
@@ -618,7 +623,11 @@ PrefabInstance:
     - {fileID: 8843492675176063228, guid: d4b9f37e8be44c44d96e7c1c0e61cdc0, type: 3}
     - {fileID: 2321063201695199338, guid: d4b9f37e8be44c44d96e7c1c0e61cdc0, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3000328216523861847, guid: d4b9f37e8be44c44d96e7c1c0e61cdc0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1557668158}
   m_SourcePrefab: {fileID: 100100000, guid: d4b9f37e8be44c44d96e7c1c0e61cdc0, type: 3}
 --- !u!1 &1136013752
 GameObject:
@@ -726,6 +735,87 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1557668157 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3000328216523861847, guid: d4b9f37e8be44c44d96e7c1c0e61cdc0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1024558183}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1557668158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557668157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 5addc1bccc44535438f3ae75af700537,
+    type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1557668159}
+        m_TargetAssemblyTypeName: Player.PlayerController, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 04d6442c-512f-45ac-a870-4e0211d23eb6
+    m_ActionName: Movement/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1557668159}
+        m_TargetAssemblyTypeName: Player.PlayerController, Assembly-CSharp
+        m_MethodName: OnJump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f080edba-991c-4ae1-b05e-83d35fce5a37
+    m_ActionName: Movement/Jump[/Keyboard/space]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Movement
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &1557668159 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6615641066563284705, guid: d4b9f37e8be44c44d96e7c1c0e61cdc0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1024558183}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557668157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b96efd338c992a34a9a247dae7a1450b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1662933282 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3457410160049206570, guid: 89490c9ea4ae6624e97db96aa939ef05,
