@@ -2,7 +2,7 @@ using Player;
 
 namespace EventBus.Events
 {
-    public struct ChangePlayerState
+    public struct ChangePlayerStateEvent
     {
         public PlayerState State;
     }

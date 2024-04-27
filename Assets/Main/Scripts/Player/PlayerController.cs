@@ -1,3 +1,6 @@
+using EventBus;
+using EventBus.Events;
+using Puzzle.Valve;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -22,22 +25,62 @@ namespace Player
         private float _turnSmoothVelocity;
         private Vector3 _velocity;
         private Vector3 _moveDir;
-        
-        // public ParticleSystem dust;
-        private void Start()
+        private ValveController _valveController;
+        private PlayerState _currentState;
+
+        public PlayerState CurrentState
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            get => _currentState;
+            set => _currentState = value;
         }
+
+        // public ParticleSystem dust;
 
         public void OnMove(InputAction.CallbackContext obj)
         {
             _moveDir = new Vector3(obj.ReadValue<Vector2>().x, 0f, obj.ReadValue<Vector2>().y).normalized;
         }
+        
+        public void OnInteract(InputAction.CallbackContext obj)
+        {
+            if (obj.started && _currentState == PlayerState.Interact)
+            {
+                Debug.Log("Interact!");
+                _valveController.SetInteract(true);
+                _currentState = PlayerState.Puzzle;
+            }
+        }
+        
+        public void OnCancelInteract(InputAction.CallbackContext obj)
+        {
+            if (obj.started && _currentState == PlayerState.Puzzle)
+            {
+                _valveController.SetInteract(false);
+                _currentState = PlayerState.Interact;
+            }
+        }
+
+        private void OnEnable()
+        {
+            EventBus<PlayerDetectedEvent>.Subscribe(SetValveController);
+        }
+        
+        private void OnDisable()
+        {
+            EventBus<PlayerDetectedEvent>.Unsubscribe(SetValveController);
+        }
+
+        private void SetValveController(PlayerDetectedEvent @event)
+        {
+            _valveController = @event.ValveController;
+        }
 
         private void FixedUpdate()
         {
-            MovePlayer();
+            if (_currentState is PlayerState.Walk or PlayerState.Interact)
+            {
+                MovePlayer();
+            }
         }
 
         private void MovePlayer()
@@ -66,7 +109,7 @@ namespace Player
         }
         public void OnJump(InputAction.CallbackContext obj)
         {
-            if (obj.started)
+            if (obj.started && _currentState == PlayerState.Walk || _currentState == PlayerState.Interact)
             {
                 Jump();
             }
