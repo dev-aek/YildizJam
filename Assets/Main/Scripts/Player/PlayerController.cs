@@ -22,13 +22,15 @@ namespace Player
         private float _turnSmoothVelocity;
         private Vector3 _velocity;
         private Vector3 _moveDir;
+        private bool _canMove = true;
+        
+        public bool CanMove
+        {
+            get => _canMove;
+            set => _canMove = value;
+        }
         
         // public ParticleSystem dust;
-        private void Start()
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
 
         public void OnMove(InputAction.CallbackContext obj)
         {
@@ -37,7 +39,10 @@ namespace Player
 
         private void FixedUpdate()
         {
-            MovePlayer();
+            if (_canMove)
+            {
+                MovePlayer();
+            }
         }
 
         private void MovePlayer()
@@ -66,7 +71,7 @@ namespace Player
         }
         public void OnJump(InputAction.CallbackContext obj)
         {
-            if (obj.started)
+            if (obj.started && _canMove)
             {
                 Jump();
             }
