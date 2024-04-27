@@ -1,3 +1,4 @@
+using System;
 using Cinemachine;
 using EventBus;
 using EventBus.Events;
@@ -11,6 +12,7 @@ namespace Puzzle.Valve
         [Header("Components")]
         [SerializeField] private Transform valve;
         [SerializeField] private Transform indicator;
+        [SerializeField] private Transform correctIndicator;
         [SerializeField] private CinemachineVirtualCamera virtualCamera;
         [SerializeField] private PlayerInput playerInput;
 
@@ -32,6 +34,14 @@ namespace Puzzle.Valve
             _cinemachineBrain = UnityEngine.Camera.main.GetComponent<CinemachineBrain>();
         }
 
+        private void Start()
+        {
+            _canRotate = false;
+            playerInput.enabled = false;
+            virtualCamera.Priority = 9;
+            correctIndicator.localRotation = Quaternion.Euler(correctAngle, 0, correctIndicator.localRotation.z);
+        }
+
         public void SetInteract(bool value)
         {
             _canRotate = value;
@@ -46,7 +56,7 @@ namespace Puzzle.Valve
 
             if (obj.phase == InputActionPhase.Canceled)
             {
-                float angleDifference = Quaternion.Angle(valve.localRotation, Quaternion.Euler(0, correctAngle, 0));
+                float angleDifference = Quaternion.Angle(valve.localRotation, Quaternion.Euler(correctAngle, 0, valve.localRotation.z));
 
                 if (angleDifference <= tolerance && !_valveCompleted)
                 {
@@ -75,7 +85,7 @@ namespace Puzzle.Valve
             {
                 float angle = Mathf.Atan2(_rotationInput.x, _rotationInput.y) * Mathf.Rad2Deg;
                 angle = Mathf.Clamp(angle, minAngle, maxAngle);
-                Quaternion targetRotation = Quaternion.Euler(0, -angle, 0);
+                Quaternion targetRotation = Quaternion.Euler(angle, 0, valve.localRotation.z);
                 
                 valve.localRotation = Quaternion.Lerp(valve.localRotation, targetRotation, rotationSpeed * Time.deltaTime);
                 indicator.localRotation = Quaternion.Lerp(indicator.localRotation, targetRotation, rotationSpeed * Time.deltaTime);
