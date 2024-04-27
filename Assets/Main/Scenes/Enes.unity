@@ -129,6 +129,28 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1024558183}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &243114845 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 315304178971731358, guid: d65ef3d08c3e5314bb1da683ff53fbaa,
+    type: 3}
+  m_PrefabInstance: {fileID: 635172619}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &243114849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243114845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb7194dc27b9df64c8beca7482ee8e0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerIndex: -1
+  AutoEnableInputs: 1
+  XYAxis: {fileID: -2159201066959707663, guid: 5addc1bccc44535438f3ae75af700537, type: 3}
+  ZAxis: {fileID: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,17 +381,21 @@ PrefabInstance:
     - target: {fileID: 9056751516183592736, guid: d65ef3d08c3e5314bb1da683ff53fbaa,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000017017443
+      value: -0.000000017017443
       objectReference: {fileID: 0}
     - target: {fileID: 9056751516183592736, guid: d65ef3d08c3e5314bb1da683ff53fbaa,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000025428721
+      value: 0.0000000025428721
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 315304178971731358, guid: d65ef3d08c3e5314bb1da683ff53fbaa,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 243114849}
   m_SourcePrefab: {fileID: 100100000, guid: d65ef3d08c3e5314bb1da683ff53fbaa, type: 3}
 --- !u!1001 &816692553
 PrefabInstance:
@@ -616,6 +642,11 @@ PrefabInstance:
       propertyPath: targetCamera
       value: 
       objectReference: {fileID: 1662933283}
+    - target: {fileID: 6615641066563284705, guid: d4b9f37e8be44c44d96e7c1c0e61cdc0,
+        type: 3}
+      propertyPath: turnSmoothTime
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 7540685338694004878, guid: d4b9f37e8be44c44d96e7c1c0e61cdc0, type: 3}
@@ -799,6 +830,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: f080edba-991c-4ae1-b05e-83d35fce5a37
     m_ActionName: Movement/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ecac9353-62ef-4a5d-9acb-fb89c8a1ce9d
+    m_ActionName: Movement/Look[/XInputControllerWindows/rightStick,/Mouse/delta]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Movement
