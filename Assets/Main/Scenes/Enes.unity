@@ -247,6 +247,12 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!143 &544490478 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 4910977653153039651, guid: d4b9f37e8be44c44d96e7c1c0e61cdc0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1024558183}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &635172619
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -293,12 +299,12 @@ PrefabInstance:
     - target: {fileID: 8418385259338309480, guid: d65ef3d08c3e5314bb1da683ff53fbaa,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000008515014
+      value: 0.000000008515015
       objectReference: {fileID: 0}
     - target: {fileID: 8418385259338309480, guid: d65ef3d08c3e5314bb1da683ff53fbaa,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000001228587
+      value: -0.0000000012285872
       objectReference: {fileID: 0}
     - target: {fileID: 8764205073198153007, guid: d65ef3d08c3e5314bb1da683ff53fbaa,
         type: 3}
@@ -353,12 +359,12 @@ PrefabInstance:
     - target: {fileID: 9056751516183592736, guid: d65ef3d08c3e5314bb1da683ff53fbaa,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000017017443
+      value: -0.000000017017443
       objectReference: {fileID: 0}
     - target: {fileID: 9056751516183592736, guid: d65ef3d08c3e5314bb1da683ff53fbaa,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000025428721
+      value: 0.0000000025428721
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -592,9 +598,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6615641066563284705, guid: d4b9f37e8be44c44d96e7c1c0e61cdc0,
         type: 3}
+      propertyPath: controller
+      value: 
+      objectReference: {fileID: 544490478}
+    - target: {fileID: 6615641066563284705, guid: d4b9f37e8be44c44d96e7c1c0e61cdc0,
+        type: 3}
       propertyPath: layer.m_Bits
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 6615641066563284705, guid: d4b9f37e8be44c44d96e7c1c0e61cdc0,
+        type: 3}
+      propertyPath: targetCamera
+      value: 
+      objectReference: {fileID: 1662933283}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 7540685338694004878, guid: d4b9f37e8be44c44d96e7c1c0e61cdc0, type: 3}
