@@ -25,9 +25,9 @@ namespace Puzzle.Panel.Button
         private void OnPanelActivation(PanelActivatedEvent @event)
         {
             var leftPos = leftPart.localPosition;
-            leftPart.DOLocalMove(new Vector3(leftPos.x + 0.5f, leftPos.y, leftPos.z), 1f);
+            leftPart.DOLocalMove(new Vector3(leftPos.x + 0.75f, leftPos.y, leftPos.z), 1f);
             var rightPos = rightPart.localPosition;
-            rightPart.DOLocalMove(new Vector3(rightPos.x - 0.5f, rightPos.y, rightPos.z), 1f).OnComplete(() =>
+            rightPart.DOLocalMove(new Vector3(rightPos.x - 0.75f, rightPos.y, rightPos.z), 1f).OnComplete(() =>
             {
                 ActivateButton();
             });
