@@ -1,3 +1,4 @@
+using Atmosfer;
 using Cinemachine;
 using EventBus;
 using EventBus.Events;
@@ -13,7 +14,7 @@ namespace Puzzle.Light
         [SerializeField] private Transform light;
         [SerializeField] private CinemachineVirtualCamera virtualCamera;
         [SerializeField] private PlayerInput playerInput;
-        
+        [SerializeField] private GameObject tutorialUI;
         
         [Space(10)]
         [Header("Properties")]
@@ -23,21 +24,15 @@ namespace Puzzle.Light
         [SerializeField] private float maxAngle;
         [SerializeField] private float rotationSpeed = 5f;
         
-        private bool _canRotate = true;
+        private bool _canRotate;
         private Vector2 _rotationInput;
         private bool _lightCompleted;
         private CinemachineBrain _cinemachineBrain;
+        private bool _isTimeAdded;
 
         private void Awake()
         {
             _cinemachineBrain = UnityEngine.Camera.main.GetComponent<CinemachineBrain>();
-        }
-
-        private void Start()
-        {
-            //_canRotate = false;
-            //playerInput.enabled = false;
-            virtualCamera.Priority = 11;
         }
 
         public void SetInteract(bool value)
@@ -45,6 +40,8 @@ namespace Puzzle.Light
             _canRotate = value;
             virtualCamera.Priority = value ? 11 : 9;
             playerInput.enabled = value;
+            tutorialUI.SetActive(!value);
+            EventBus<InteractionTutorialEvent>.Dispatch(new InteractionTutorialEvent { PuzzleLevel = LevelEnum.Light, IsShow = value});
         }
         
         public void OnRotate(InputAction.CallbackContext obj)
@@ -59,13 +56,14 @@ namespace Puzzle.Light
                 Debug.Log("Angle Difference: " + angleDifference);
                 if (angleDifference <= tolerance && !_lightCompleted)
                 {
+                    if (!_isTimeAdded)
+                    {
+                        _isTimeAdded = true;
+                        EventBus<TimeAwardEvent>.Dispatch(new TimeAwardEvent { Time = 10 });
+                    }
+                    _canRotate = false;
                     _lightCompleted = true;
                     EventBus<LightCompletedEvent>.Dispatch(new LightCompletedEvent{ IsCompleted = true });
-                }
-                else if (_lightCompleted)
-                {
-                    _lightCompleted = false;
-                    EventBus<LightCompletedEvent>.Dispatch(new LightCompletedEvent{ IsCompleted = false });
                 }
             }
         }

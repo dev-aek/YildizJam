@@ -5,10 +5,16 @@ namespace Puzzle.Panel.Button
 {
     public class ButtonPress : MonoBehaviour
     {
+        [SerializeField] private Collider collider;
         private void OnMouseDown()
         {
-            Debug.Log("Button pressed!");
-            transform.DOMoveY(-0.3f, 0.3f);
+            transform.DOLocalMoveY(transform.localPosition.y - 0.3f, 0.4f).OnComplete((() =>
+            {
+                transform.DOLocalMoveY(transform.localPosition.y + 0.3f, 0.4f).OnComplete(() =>
+                {
+                    collider.enabled = false;
+                });
+            }));
         }
     }
 }

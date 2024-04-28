@@ -1,3 +1,4 @@
+using Atmosfer;
 using EventBus.Events;
 using EventBus;
 using UnityEngine;
@@ -32,7 +33,8 @@ namespace Puzzle.Light
             
             if (_completedLightCount == lightCount)
             {
-                Debug.Log("All lights are completed!");
+                EventBus<TimeAwardEvent>.Dispatch(new TimeAwardEvent{ Time = 15 });
+                EventBus<OpenDoorEvent>.Dispatch(new OpenDoorEvent{LevelEnum = LevelEnum.Light});
             }
         }
     }

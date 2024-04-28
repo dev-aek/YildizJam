@@ -1,5 +1,7 @@
+using Atmosfer;
 using EventBus;
 using EventBus.Events;
+using Puzzle.Light;
 using Puzzle.Valve;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -26,7 +28,9 @@ namespace Player
         private Vector3 _velocity;
         private Vector3 _moveDir;
         private ValveController _valveController;
+        private LightController _lightController;
         private PlayerState _currentState;
+        private LevelEnum _currentLevel;
 
         public PlayerState CurrentState
         {
@@ -45,8 +49,7 @@ namespace Player
         {
             if (obj.started && _currentState == PlayerState.Interact)
             {
-                Debug.Log("Interact!");
-                _valveController.SetInteract(true);
+                InteractObject(_currentLevel, true);
                 _currentState = PlayerState.Puzzle;
             }
         }
@@ -67,7 +70,7 @@ namespace Player
         {
             if (obj.started && _currentState == PlayerState.Puzzle)
             {
-                _valveController.SetInteract(false);
+                InteractObject(_currentLevel, false);
                 _currentState = PlayerState.Interact;
             }
         }
@@ -75,16 +78,24 @@ namespace Player
         private void OnEnable()
         {
             EventBus<PlayerDetectedEvent>.Subscribe(SetValveController);
+            EventBus<ChangeCurrentLevelEvent>.Subscribe(SetCurrentLevel);
         }
         
         private void OnDisable()
         {
             EventBus<PlayerDetectedEvent>.Unsubscribe(SetValveController);
+            EventBus<ChangeCurrentLevelEvent>.Unsubscribe(SetCurrentLevel);
+        }
+
+        private void SetCurrentLevel(ChangeCurrentLevelEvent @event)
+        {
+            _currentLevel = @event.CurrentLevel;
         }
 
         private void SetValveController(PlayerDetectedEvent @event)
         {
             _valveController = @event.ValveController;
+            _lightController = @event.LightController;
         }
 
         private void FixedUpdate()
@@ -138,6 +149,18 @@ namespace Player
             if (isGrounded)
             {
                 _velocity.y = Mathf.Sqrt((jumpHeight * 10) * -2f * gravity);
+            }
+        }
+        
+        private void InteractObject(LevelEnum level, bool isInteract)
+        {
+            if (level == LevelEnum.Valve)
+            {
+                _valveController.SetInteract(isInteract);
+            }
+            else if (level == LevelEnum.Light)
+            {
+                _lightController.SetInteract(isInteract);
             }
         }
         
