@@ -1,16 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using DG.Tweening;
+using UnityEngine;
 
-public class CamMove : MonoBehaviour
+namespace Timeline
 {
-    public void Update()
+    public class CamMove : MonoBehaviour
     {
-        camMove();
+        public void Update()
+        {
+            CameraMove();
+        }
+        private void CameraMove()
+        {
+            transform.DOLocalMove(new Vector3(1f,2f,0), 500f);
+        }
     }
-    public void camMove()
-   {
-        transform.DOLocalMove(new Vector3(1f,2f,0), 500f);
-   }
 }

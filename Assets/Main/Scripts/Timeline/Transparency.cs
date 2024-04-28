@@ -1,36 +1,38 @@
-using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine;
 
-public class TextTransparencyController : MonoBehaviour
+namespace Timeline
 {
-    public float fadeDuration = 5f; // Geçiş süresi
-    private float currentFadeTime = 0f; // Geçen süre
-    private TextMeshProUGUI textComponent; // Text objesinin referansı
-
-    void Start()
+    public class TextTransparencyController : MonoBehaviour
     {
-        // Text objesini al
-        textComponent = GetComponent<TextMeshProUGUI>();
+        [SerializeField] private float fadeDuration = 5f; // GeÃ§iÅŸ sÃ¼resi
+        private float currentFadeTime = 0f; // GeÃ§en sÃ¼re
+        private TextMeshProUGUI textComponent; // Text objesinin referansÄ±
 
-        // Başlangıçta transparanlık değeri 0 olsun
-        Color newColor = textComponent.color;
-        newColor.a = 0f;
-        textComponent.color = newColor;
-    }
-
-    void Update()
-    {
-        // Geçen süreyi arttır
-        currentFadeTime += Time.deltaTime;
-
-        // Geçen süre, geçiş süresinden küçük olduğu sürece transparanlık değerini güncelle
-        if (currentFadeTime < fadeDuration)
+        private void Start()
         {
-            float alpha = Mathf.Lerp(0f, 1f, currentFadeTime / fadeDuration);
+            // Text objesini al
+            textComponent = GetComponent<TextMeshProUGUI>();
+
+            // BaÅŸlangÄ±Ã§ta transparanlÄ±k deÄŸeri 0 olsun
             Color newColor = textComponent.color;
-            newColor.a = alpha;
+            newColor.a = 0f;
             textComponent.color = newColor;
+        }
+
+        private void Update()
+        {
+            // GeÃ§en sÃ¼reyi arttÄ±r
+            currentFadeTime += Time.deltaTime;
+
+            // GeÃ§en sÃ¼re, geÃ§iÅŸ sÃ¼resinden kÃ¼Ã§Ã¼k olduÄŸu sÃ¼rece transparanlÄ±k deÄŸerini gÃ¼ncelle
+            if (currentFadeTime < fadeDuration)
+            {
+                float alpha = Mathf.Lerp(0f, 1f, currentFadeTime / fadeDuration);
+                Color newColor = textComponent.color;
+                newColor.a = alpha;
+                textComponent.color = newColor;
+            }
         }
     }
 }
