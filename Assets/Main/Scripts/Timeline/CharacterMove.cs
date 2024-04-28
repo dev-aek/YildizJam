@@ -1,7 +1,7 @@
 using UnityEngine;
 
-namespace Timeline
-{
+//namespace Timeline
+//{
 
 
     public class CharacterMove : MonoBehaviour
@@ -30,4 +30,4 @@ namespace Timeline
         
         }
     }
-}
+//}
