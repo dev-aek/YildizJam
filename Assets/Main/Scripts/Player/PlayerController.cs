@@ -50,6 +50,18 @@ namespace Player
                 _currentState = PlayerState.Puzzle;
             }
         }
+
+        public void OnRun(InputAction.CallbackContext obj)
+        {
+            if (obj.started)
+            {
+                speed *= 1.5f;
+            }
+            else if (obj.canceled)
+            {
+                speed /= 1.5f;
+            }
+        }
         
         public void OnCancelInteract(InputAction.CallbackContext obj)
         {
@@ -115,14 +127,6 @@ namespace Player
             }
         }
 
-        public void OnRun(InputAction.CallbackContext obj)
-        {
-            if (obj.started && _currentState == PlayerState.Walk || _currentState == PlayerState.Interact)
-            {
-                Run();
-            }
-        }
-
         private void Jump()
         {
             isGrounded = Physics.CheckSphere(transform.position, groudRadius, layer);
@@ -136,10 +140,6 @@ namespace Player
                 _velocity.y = Mathf.Sqrt((jumpHeight * 10) * -2f * gravity);
             }
         }
-
-        private void Run()
-        {
-            Debug.Log("Run");
-        }
+        
     }
 }
