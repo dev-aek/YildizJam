@@ -1,5 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using EventBus;
+using EventBus.Events;
 using UnityEngine;
 using TMPro;
 
@@ -16,9 +19,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private float worldTime = 60;
     [SerializeField] private bool isWorldTimer = true;
     [SerializeField] public float wTimeBlinkSpeed = 1;
-    [SerializeField] private float fadeTextDuration = 2f; // Geçiþ süresi
+    [SerializeField] private float fadeTextDuration = 2f; // Geï¿½iï¿½ sï¿½resi
 
-    private float currentTextFadeTime = 0f; // Geçen süre
+    private float currentTextFadeTime = 0f; // Geï¿½en sï¿½re
 
     private Color firsWTTColor; //firt world time text color
     private void Awake()
@@ -41,13 +44,27 @@ public class UIManager : MonoBehaviour
 
     }
 
-    public void TimeAward(int t)
+    private void OnEnable()
+    {
+        EventBus<TimeAwardEvent>.Subscribe(OnTimeAward);
+    }
+
+    private void OnDisable()
+    {
+        EventBus<TimeAwardEvent>.Unsubscribe(OnTimeAward);
+    }
+
+    private void OnTimeAward(TimeAwardEvent @event)
+    {
+        TimeAward(@event.Time);
+    }
+
+    private void TimeAward(int t)
     {
         worldTime += t;
         questAwardText.gameObject.SetActive(true);
         questAwardText.text = "+" + t.ToString();
     }
-
 
     public void DisplayTime()
     {

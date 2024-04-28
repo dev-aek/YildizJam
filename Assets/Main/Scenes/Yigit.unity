@@ -321,12 +321,12 @@ PrefabInstance:
     - target: {fileID: 4988782596306063299, guid: d65ef3d08c3e5314bb1da683ff53fbaa,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000008481623
+      value: 0.000000008481627
       objectReference: {fileID: 0}
     - target: {fileID: 4988782596306063299, guid: d65ef3d08c3e5314bb1da683ff53fbaa,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000014411563
+      value: -0.0000000014411571
       objectReference: {fileID: 0}
     - target: {fileID: 5456129085531385346, guid: d65ef3d08c3e5314bb1da683ff53fbaa,
         type: 3}
@@ -361,17 +361,17 @@ PrefabInstance:
     - target: {fileID: 8418385259338309480, guid: d65ef3d08c3e5314bb1da683ff53fbaa,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.13862379
+      value: 0.1386238
       objectReference: {fileID: 0}
     - target: {fileID: 8418385259338309480, guid: d65ef3d08c3e5314bb1da683ff53fbaa,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000029514588
+      value: 6.8602045e-17
       objectReference: {fileID: 0}
     - target: {fileID: 8418385259338309480, guid: d65ef3d08c3e5314bb1da683ff53fbaa,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000041313113
+      value: 9.680295e-17
       objectReference: {fileID: 0}
     - target: {fileID: 8764205073198153007, guid: d65ef3d08c3e5314bb1da683ff53fbaa,
         type: 3}
@@ -436,12 +436,12 @@ PrefabInstance:
     - target: {fileID: 9056751516183592736, guid: d65ef3d08c3e5314bb1da683ff53fbaa,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000008511789
+      value: 0.000000008511789
       objectReference: {fileID: 0}
     - target: {fileID: 9056751516183592736, guid: d65ef3d08c3e5314bb1da683ff53fbaa,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000012507346
+      value: -0.0000000012507346
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1693,6 +1693,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4665947466236592441, guid: 3ba5421b97c148940b5357d2cfe2a4f3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
