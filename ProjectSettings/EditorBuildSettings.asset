@@ -5,9 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Main/Scenes/Enes.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Main/Scenes/Deneme 2.unity
+    guid: 502af3162b46908499a1c47d43ea6e02
+  - enabled: 1
+    path: Assets/Main/Scenes/Deneme 3.unity
+    guid: 6f6009d4592be304caae2648af0713d6
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 3bf9284834cc1bd44a8b4ba555c28dc9,
       type: 2}

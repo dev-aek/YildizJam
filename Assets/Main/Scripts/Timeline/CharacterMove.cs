@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharacterMove : MonoBehaviour
 {
     public float speed;
+    public GameObject gb;
     private void Update()
     {
         transform.Translate(-1*speed, 0, 0);
@@ -18,6 +19,7 @@ public class CharacterMove : MonoBehaviour
         {
             Debug.Log("dur");
             speed = 0;
+            gb.SetActive(false);
         }
         
     }
