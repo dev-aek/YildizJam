@@ -10,20 +10,32 @@ namespace Player
         
         private void Start()
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            ChangeMouseVisibility(false);
+        }
+
+        private void ChangeMouseVisibility(bool isVisible)
+        {
+            Cursor.lockState = isVisible ? CursorLockMode.None : CursorLockMode.Locked;
+            Cursor.visible = isVisible;
         }
 
         private void OnEnable()
         {
             EventBus<ChangePlayerStateEvent>.Subscribe(SetPlayerState);
+            EventBus<SetMouseVisibilityEvent>.Subscribe(SetMouseVisibility);
         }
         
         private void OnDisable()
         {
             EventBus<ChangePlayerStateEvent>.Unsubscribe(SetPlayerState);
+            EventBus<SetMouseVisibilityEvent>.Unsubscribe(SetMouseVisibility);
         }
-        
+
+        private void SetMouseVisibility(SetMouseVisibilityEvent @event)
+        {
+            ChangeMouseVisibility(@event.IsVisible);
+        }
+
         private void SetPlayerState(ChangePlayerStateEvent @event)
         {
             playerController.CurrentState = @event.State;

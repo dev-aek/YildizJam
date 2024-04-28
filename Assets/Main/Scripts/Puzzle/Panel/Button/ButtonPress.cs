@@ -1,4 +1,6 @@
 using DG.Tweening;
+using EventBus;
+using EventBus.Events;
 using UnityEngine;
 
 namespace Puzzle.Panel.Button
@@ -13,6 +15,7 @@ namespace Puzzle.Panel.Button
                 transform.DOLocalMoveY(transform.localPosition.y + 0.3f, 0.4f).OnComplete(() =>
                 {
                     collider.enabled = false;
+                    EventBus<GameFinishedEvent>.Dispatch(new GameFinishedEvent());
                 });
             }));
         }

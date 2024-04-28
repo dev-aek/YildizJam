@@ -2,6 +2,7 @@ using Atmosfer;
 using EventBus;
 using EventBus.Events;
 using Puzzle.Light;
+using Puzzle.Panel;
 using Puzzle.Valve;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -29,9 +30,9 @@ namespace Player
         private Vector3 _moveDir;
         private ValveController _valveController;
         private LightController _lightController;
+        private PanelManager _panelManager;
         private PlayerState _currentState;
         private LevelEnum _currentLevel;
-
         public PlayerState CurrentState
         {
             get => _currentState;
@@ -96,6 +97,7 @@ namespace Player
         {
             _valveController = @event.ValveController;
             _lightController = @event.LightController;
+            _panelManager = @event.PanelManager;
         }
 
         private void FixedUpdate()
@@ -161,6 +163,10 @@ namespace Player
             else if (level == LevelEnum.Light)
             {
                 _lightController.SetInteract(isInteract);
+            }
+            else if (level == LevelEnum.Panel)
+            {
+                _panelManager.SetInteract(isInteract);
             }
         }
         
