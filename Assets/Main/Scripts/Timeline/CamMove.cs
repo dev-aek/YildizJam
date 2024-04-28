@@ -11,7 +11,7 @@ namespace Timeline
         }
         private void CameraMove()
         {
-            transform.DOLocalMove(new Vector3(1f,2f,0), 700f);
+            transform.DOLocalMove(new Vector3(1f,2f,0f), 2000f);
         }
     }
 }

@@ -1,4 +1,6 @@
 using System;
+using EventBus;
+using EventBus.Events;
 using UnityEngine;
 
 namespace Puzzle.Panel.CableManagement
@@ -10,7 +12,6 @@ namespace Puzzle.Panel.CableManagement
         
 
         private Vector3 offset;
-        private Collider collider;
 
         private void OnMouseDown()
         {
@@ -34,7 +35,7 @@ namespace Puzzle.Panel.CableManagement
                 if (hit.collider.CompareTag(targetTag))
                 {
                     line.SetPosition(0, hit.point);
-                    collider.enabled = false;
+                    EventBus<CableConnectedEvent>.Dispatch(new CableConnectedEvent());
                 }
                 else
                 {

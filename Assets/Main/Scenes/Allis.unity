@@ -5031,7 +5031,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &260303426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7150,7 +7150,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 30
+  field of view: 60.000004
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -7176,8 +7176,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.19751275, y: -0.6820587, z: 0.20024766, w: 0.67504483}
-  m_LocalPosition: {x: 129.97, y: 10.26, z: -0.5}
+  m_LocalRotation: {x: 0.044432368, y: 0.6935839, z: -0.04291102, w: 0.7177227}
+  m_LocalPosition: {x: 251.28232, y: 3.9, z: 0.337}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13919,7 +13919,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!320 &724009485
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -19249,7 +19249,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1022764022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19573,7 +19573,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1038517158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27877,7 +27877,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1577557716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30970,7 +30970,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1754864600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31822,7 +31822,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1797025306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33170,7 +33170,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1876530353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35262,7 +35262,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2021219922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35522,7 +35522,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!320 &2038525532
 PlayableDirector:
   m_ObjectHideFlags: 0
