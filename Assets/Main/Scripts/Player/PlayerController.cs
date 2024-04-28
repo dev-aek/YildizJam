@@ -28,6 +28,7 @@ namespace Player
         private float _turnSmoothVelocity;
         private Vector3 _velocity;
         private Vector3 _moveDir;
+        private bool _isGameFinished;
         private ValveController _valveController;
         private LightController _lightController;
         private PanelManager _panelManager;
@@ -80,12 +81,19 @@ namespace Player
         {
             EventBus<PlayerDetectedEvent>.Subscribe(SetValveController);
             EventBus<ChangeCurrentLevelEvent>.Subscribe(SetCurrentLevel);
+            EventBus<GameFinishedEvent>.Subscribe(MakeCharacterKinematic);
         }
         
         private void OnDisable()
         {
             EventBus<PlayerDetectedEvent>.Unsubscribe(SetValveController);
             EventBus<ChangeCurrentLevelEvent>.Unsubscribe(SetCurrentLevel);
+            EventBus<GameFinishedEvent>.Unsubscribe(MakeCharacterKinematic);
+        }
+
+        private void MakeCharacterKinematic(GameFinishedEvent eventtopublish)
+        {
+            _isGameFinished = true;
         }
 
         private void SetCurrentLevel(ChangeCurrentLevelEvent @event)
@@ -102,6 +110,7 @@ namespace Player
 
         private void FixedUpdate()
         {
+            if(_isGameFinished) return;
             if (_currentState is PlayerState.Walk or PlayerState.Interact)
             {
                 MovePlayer();
