@@ -2,6 +2,7 @@ using DG.Tweening;
 using EventBus;
 using EventBus.Events;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Puzzle.Panel.Button
 {
@@ -16,6 +17,7 @@ namespace Puzzle.Panel.Button
                 {
                     collider.enabled = false;
                     EventBus<GameFinishedEvent>.Dispatch(new GameFinishedEvent());
+                    SceneManager.LoadScene("Final");
                 });
             }));
         }
