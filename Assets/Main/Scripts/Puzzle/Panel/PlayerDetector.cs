@@ -4,12 +4,12 @@ using EventBus.Events;
 using Player;
 using UnityEngine;
 
-namespace Puzzle.Valve
+namespace Puzzle.Panel
 {
     public class PlayerDetector : MonoBehaviour
     {
         [SerializeField] private GameObject tutorialUI;
-        [SerializeField] private ValveController valveController;
+        [SerializeField] private PanelManager panelManager;
 
         private void Start()
         {
@@ -22,19 +22,20 @@ namespace Puzzle.Valve
             {
                 tutorialUI.SetActive(true);
                 Debug.Log("Player detected!");
-                EventBus<ChangeCurrentLevelEvent>.Dispatch(new ChangeCurrentLevelEvent{CurrentLevel = LevelEnum.Valve});
-                EventBus<ChangePlayerStateEvent>.Dispatch(new ChangePlayerStateEvent(){State = PlayerState.Interact});
-                EventBus<PlayerDetectedEvent>.Dispatch(new PlayerDetectedEvent{ValveController = valveController});
+                EventBus<ChangeCurrentLevelEvent>.Dispatch(new ChangeCurrentLevelEvent{CurrentLevel = LevelEnum.Panel});
+                EventBus<ChangePlayerStateEvent>.Dispatch(new ChangePlayerStateEvent()
+                    { State = PlayerState.Interact });
+                EventBus<PlayerDetectedEvent>.Dispatch(new PlayerDetectedEvent { PanelManager = panelManager });
             }
         }
-        
+
         private void OnTriggerExit(Collider other)
         {
             if (other.CompareTag("Player"))
             {
                 tutorialUI.SetActive(false);
-                EventBus<ChangePlayerStateEvent>.Dispatch(new ChangePlayerStateEvent(){State = PlayerState.Walk});
-                EventBus<PlayerDetectedEvent>.Dispatch(new PlayerDetectedEvent{ValveController = valveController});
+                EventBus<ChangePlayerStateEvent>.Dispatch(new ChangePlayerStateEvent() { State = PlayerState.Walk });
+                EventBus<PlayerDetectedEvent>.Dispatch(new PlayerDetectedEvent { PanelManager = panelManager });
             }
         }
     }

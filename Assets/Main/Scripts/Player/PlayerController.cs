@@ -2,6 +2,7 @@ using Atmosfer;
 using EventBus;
 using EventBus.Events;
 using Puzzle.Light;
+using Puzzle.Panel;
 using Puzzle.Valve;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -27,11 +28,12 @@ namespace Player
         private float _turnSmoothVelocity;
         private Vector3 _velocity;
         private Vector3 _moveDir;
+        private bool _isGameFinished;
         private ValveController _valveController;
         private LightController _lightController;
+        private PanelManager _panelManager;
         private PlayerState _currentState;
         private LevelEnum _currentLevel;
-
         public PlayerState CurrentState
         {
             get => _currentState;
@@ -79,12 +81,19 @@ namespace Player
         {
             EventBus<PlayerDetectedEvent>.Subscribe(SetValveController);
             EventBus<ChangeCurrentLevelEvent>.Subscribe(SetCurrentLevel);
+            EventBus<GameFinishedEvent>.Subscribe(MakeCharacterKinematic);
         }
         
         private void OnDisable()
         {
             EventBus<PlayerDetectedEvent>.Unsubscribe(SetValveController);
             EventBus<ChangeCurrentLevelEvent>.Unsubscribe(SetCurrentLevel);
+            EventBus<GameFinishedEvent>.Unsubscribe(MakeCharacterKinematic);
+        }
+
+        private void MakeCharacterKinematic(GameFinishedEvent eventtopublish)
+        {
+            _isGameFinished = true;
         }
 
         private void SetCurrentLevel(ChangeCurrentLevelEvent @event)
@@ -96,10 +105,12 @@ namespace Player
         {
             _valveController = @event.ValveController;
             _lightController = @event.LightController;
+            _panelManager = @event.PanelManager;
         }
 
         private void FixedUpdate()
         {
+            if(_isGameFinished) return;
             if (_currentState is PlayerState.Walk or PlayerState.Interact)
             {
                 MovePlayer();
@@ -161,6 +172,10 @@ namespace Player
             else if (level == LevelEnum.Light)
             {
                 _lightController.SetInteract(isInteract);
+            }
+            else if (level == LevelEnum.Panel)
+            {
+                _panelManager.SetInteract(isInteract);
             }
         }
         
