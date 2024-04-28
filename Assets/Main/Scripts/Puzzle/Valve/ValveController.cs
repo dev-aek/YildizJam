@@ -1,4 +1,3 @@
-using System;
 using Atmosfer;
 using Cinemachine;
 using EventBus;
@@ -75,11 +74,6 @@ namespace Puzzle.Valve
                     _canRotate = false;
                     _valveCompleted = true;
                     EventBus<ValveCompletedEvent>.Dispatch(new ValveCompletedEvent { IsCompleted = true });
-                }
-                else if (_valveCompleted)
-                {
-                    _valveCompleted = false;
-                    EventBus<ValveCompletedEvent>.Dispatch(new ValveCompletedEvent { IsCompleted = false });
                 }
             }
         }
