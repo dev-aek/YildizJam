@@ -1,6 +1,8 @@
 using EventBus;
 using EventBus.Events;
 using UnityEngine;
+using System.Collections;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class UIManager : MonoBehaviour
@@ -10,6 +12,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI worldTimeText;
     [SerializeField] private TextMeshProUGUI questAwardText;
     [SerializeField] public Color lastWTTColor = Color.white; //last world time text color
+    [SerializeField] public GameObject panel; //last world time text color
 
     [Space(10)]
     [Header("Properties")]
@@ -31,9 +34,11 @@ public class UIManager : MonoBehaviour
         if (isWorldTimer)
         {
             DisplayTime();
-            if (worldTime == 0)
+            if (worldTime < 0)
             {
+                StartCoroutine(ExampleCoroutine());
                 isWorldTimer = false;
+                worldTime = 0;
             }
             worldTime -= Time.deltaTime;
             QuestText();
@@ -99,8 +104,17 @@ public class UIManager : MonoBehaviour
             currentTextFadeTime = 0f;
         }
     }
-   /* public void DisplayPauseTime()
+    IEnumerator ExampleCoroutine()
     {
-        worldTimeText.color = Color.Lerp(firsWTTColor, lastWTTColor, Mathf.PingPong(Time.time * wTimeBlinkSpeed, 1));
-    }*/
+        panel.active = true;
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+    }
+
+
+    /* public void DisplayPauseTime()
+     {
+         worldTimeText.color = Color.Lerp(firsWTTColor, lastWTTColor, Mathf.PingPong(Time.time * wTimeBlinkSpeed, 1));
+     }*/
 }
