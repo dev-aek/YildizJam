@@ -33,6 +33,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Run",
+                    "type": "Button",
+                    "id": "5c436479-4b73-4405-af5e-df7b25268fb6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Interact",
                     "type": "Button",
                     "id": "3632f001-8439-488e-a19f-3a4fb4b28a13",
@@ -258,6 +267,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "CancelInteract",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1a4ff6b2-d37b-4e56-b10f-59cbffad7c41",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Robot",
+                    "action": "Run",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
