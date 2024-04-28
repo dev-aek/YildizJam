@@ -65,6 +65,11 @@ namespace Puzzle.Panel.Motherboard
                         Destroy(this);
                     });
                 }
+                else
+                {
+                    targetTransform = null;
+                    isReturning = true;
+                }
             }
             else
             {
