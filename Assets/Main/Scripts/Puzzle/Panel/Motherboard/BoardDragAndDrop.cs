@@ -1,4 +1,6 @@
 using DG.Tweening;
+using EventBus;
+using EventBus.Events;
 using UnityEngine;
 
 namespace Puzzle.Panel.Motherboard
@@ -61,6 +63,7 @@ namespace Puzzle.Panel.Motherboard
                     transform.DOMove(targetTransform.position, 0.5f);
                     transform.DORotate(targetTransform.rotation.eulerAngles, 0.5f).OnComplete(() =>
                     {
+                        EventBus<BoardPlacedEvent>.Dispatch(new BoardPlacedEvent());
                         Destroy(_collider);
                         Destroy(this);
                     });
