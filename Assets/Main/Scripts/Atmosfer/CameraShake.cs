@@ -7,7 +7,7 @@ namespace Atmosfer
 {
     public class CameraShake : MonoBehaviour
     {
-        CinemachineImpulseSource impulse;
+        private CinemachineImpulseSource impulse;
 
         private void Awake()
         {
