@@ -22963,37 +22963,37 @@ PrefabInstance:
     - target: {fileID: 6430190698988483238, guid: 89490c9ea4ae6624e97db96aa939ef05,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 204.73027
+      value: 164.86015
       objectReference: {fileID: 0}
     - target: {fileID: 6430190698988483238, guid: 89490c9ea4ae6624e97db96aa939ef05,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.992901
+      value: 9.82807
       objectReference: {fileID: 0}
     - target: {fileID: 6430190698988483238, guid: 89490c9ea4ae6624e97db96aa939ef05,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -265.06067
+      value: -270.1022
       objectReference: {fileID: 0}
     - target: {fileID: 6430190698988483238, guid: 89490c9ea4ae6624e97db96aa939ef05,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.91905046
+      value: 0.8681997
       objectReference: {fileID: 0}
     - target: {fileID: 6430190698988483238, guid: 89490c9ea4ae6624e97db96aa939ef05,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.009937982
+      value: -0.014057648
       objectReference: {fileID: 0}
     - target: {fileID: 6430190698988483238, guid: 89490c9ea4ae6624e97db96aa939ef05,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.39399186
+      value: -0.49595088
       objectReference: {fileID: 0}
     - target: {fileID: 6430190698988483238, guid: 89490c9ea4ae6624e97db96aa939ef05,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0042527267
+      value: -0.008030132
       objectReference: {fileID: 0}
     - target: {fileID: 6430190698988483238, guid: 89490c9ea4ae6624e97db96aa939ef05,
         type: 3}
@@ -28494,7 +28494,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1512723617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34395,7 +34395,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!320 &1945979598
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -34413,6 +34413,16 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: -6756305217323175512, guid: d340c8d3d7bdb7b4ca7c8c3465cc6300, type: 2}
     value: {fileID: 1172810431}
+  - key: {fileID: 2624164599992164044, guid: d340c8d3d7bdb7b4ca7c8c3465cc6300, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -3004021361789580546, guid: d340c8d3d7bdb7b4ca7c8c3465cc6300, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -8607596022280360856, guid: d340c8d3d7bdb7b4ca7c8c3465cc6300, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -3165497811130756312, guid: d340c8d3d7bdb7b4ca7c8c3465cc6300, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 1388383890284085946, guid: d340c8d3d7bdb7b4ca7c8c3465cc6300, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References:
     - 88e374d32a0617f4790d9cc43a9876c2: {fileID: 0}

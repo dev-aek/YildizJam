@@ -35,8 +35,14 @@ namespace Timeline
                 textComponent.color = newColor;
                 
             }
-            Invoke("OpenScene", 5f);
+            Invoke("OpenScene", 3.5f);
             
+        }
+
+        private void OpenScene()
+        {
+            SceneManager.LoadScene(1);
+
         }
 
     }
