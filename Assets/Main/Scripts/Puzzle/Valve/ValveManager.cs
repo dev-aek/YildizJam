@@ -1,3 +1,4 @@
+using Atmosfer;
 using EventBus;
 using EventBus.Events;
 using UnityEngine;
@@ -32,7 +33,8 @@ namespace Puzzle.Valve
             
             if (_completedValveCount == valveCount)
             {
-                Debug.Log("All valves are completed!");
+                EventBus<TimeAwardEvent>.Dispatch(new TimeAwardEvent{ Time = 15 });
+                EventBus<OpenDoorEvent>.Dispatch(new OpenDoorEvent{LevelEnum = LevelEnum.Valve});
             }
         }
     }

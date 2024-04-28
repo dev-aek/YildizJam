@@ -2,7 +2,6 @@ using EventBus.Events;
 using EventBus;
 using Player;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Puzzle.Light
 {
