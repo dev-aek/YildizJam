@@ -4,7 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
   - CinePoint
+=======
+  - black
+  - red
+  - blue
+  - placeholder
+>>>>>>> 8094b0a5bd9a1598762075ee054092be235dd1a2
   layers:
   - Default
   - TransparentFX
