@@ -1,24 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterMove : MonoBehaviour
+namespace Timeline
 {
-    public float speed;
-    private void Update()
+    public class CharacterMove : MonoBehaviour
     {
-        transform.Translate(-1*speed, 0, 0);
-
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-
-        if (other.gameObject.CompareTag("CinePoint"))
+        public float speed;
+        private void Update()
         {
-            Debug.Log("dur");
-            speed = 0;
+            transform.Translate(-1*speed, 0, 0);
+
         }
+
+        private void OnTriggerEnter(Collider other)
+        {
+
+            if (other.gameObject.CompareTag("CinePoint"))
+            {
+                Debug.Log("dur");
+                speed = 0;
+            }
         
+        }
     }
 }
