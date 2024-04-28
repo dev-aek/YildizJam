@@ -6196,7 +6196,7 @@ GameObject:
   - component: {fileID: 320179458}
   - component: {fileID: 320179457}
   m_Layer: 6
-  m_Name: Point Light (2)
+  m_Name: White Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7159,7 +7159,11 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1190350037}
+  - {fileID: 1139027213}
+  - {fileID: 877470523}
+  - {fileID: 659138352}
   - {fileID: 1785333986}
+  - {fileID: 479605507}
   - {fileID: 1792183950}
   - {fileID: 1508304713}
   - {fileID: 320179456}
@@ -7175,12 +7179,8 @@ Transform:
   - {fileID: 928719903}
   - {fileID: 603847774}
   - {fileID: 1591188036}
-  - {fileID: 877470523}
   - {fileID: 1445193920}
   - {fileID: 2063649535}
-  - {fileID: 659138352}
-  - {fileID: 1139027213}
-  - {fileID: 479605507}
   - {fileID: 1863416581}
   - {fileID: 422101181}
   m_Father: {fileID: 444752575}
@@ -9501,7 +9501,7 @@ GameObject:
   - component: {fileID: 479605509}
   - component: {fileID: 479605508}
   m_Layer: 6
-  m_Name: Point Light (13)
+  m_Name: White Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11744,7 +11744,7 @@ GameObject:
   - component: {fileID: 659138354}
   - component: {fileID: 659138353}
   m_Layer: 6
-  m_Name: Point Light (11)
+  m_Name: White Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16368,7 +16368,7 @@ GameObject:
   - component: {fileID: 877470525}
   - component: {fileID: 877470524}
   m_Layer: 6
-  m_Name: Point Light (19)
+  m_Name: White Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21413,7 +21413,7 @@ GameObject:
   - component: {fileID: 1139027215}
   - component: {fileID: 1139027214}
   m_Layer: 6
-  m_Name: Point Light (12)
+  m_Name: White Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22902,7 +22902,7 @@ GameObject:
   - component: {fileID: 1190350039}
   - component: {fileID: 1190350038}
   m_Layer: 6
-  m_Name: Point Light (14)
+  m_Name: White Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27280,7 +27280,7 @@ GameObject:
   - component: {fileID: 1508304715}
   - component: {fileID: 1508304714}
   m_Layer: 6
-  m_Name: Point Light (6)
+  m_Name: White Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30376,7 +30376,7 @@ GameObject:
   - component: {fileID: 1785333988}
   - component: {fileID: 1785333987}
   m_Layer: 6
-  m_Name: Point Light
+  m_Name: White Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30601,7 +30601,7 @@ GameObject:
   - component: {fileID: 1792183952}
   - component: {fileID: 1792183951}
   m_Layer: 6
-  m_Name: Point Light (24)
+  m_Name: White Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
