@@ -27,6 +27,7 @@ namespace Puzzle.Valve
         private bool _canRotate;
         private Vector2 _rotationInput;
         private bool _valveCompleted;
+        private bool _isTimeAdded;
         private CinemachineBrain _cinemachineBrain;
 
         private void Awake()
@@ -60,6 +61,11 @@ namespace Puzzle.Valve
 
                 if (angleDifference <= tolerance && !_valveCompleted)
                 {
+                    if (!_isTimeAdded)
+                    {
+                        _isTimeAdded = true;
+                        EventBus<TimeAwardEvent>.Dispatch(new TimeAwardEvent { Time = 10 });
+                    }
                     _valveCompleted = true;
                     EventBus<ValveCompletedEvent>.Dispatch(new ValveCompletedEvent { IsCompleted = true });
                 }

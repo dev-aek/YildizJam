@@ -1,28 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using EventBus;
 using EventBus.Events;
-public class AudioManager : MonoBehaviour
+using UnityEngine;
+
+namespace Atmosfer
 {
-    [SerializeField] private AudioSource[] effects;
-    [SerializeField] private AudioSource[] musics;
-
-    private void OnEnable()
+    public class AudioManager : MonoBehaviour
     {
-        EventBus<ShakeActionEvent>.Subscribe(ExplosionCameraShake);
-    }
+        [SerializeField] private AudioSource[] effects;
+        [SerializeField] private AudioSource[] musics;
 
-    private void OnDisable()
-    {
-        EventBus<ShakeActionEvent>.Unsubscribe(ExplosionCameraShake);
-    }
-
-    public void ExplosionCameraShake(ShakeActionEvent @event)
-    {
-        if (@event.IsPlaySound)
+        private void OnEnable()
         {
-            effects[0].Play();
+            EventBus<ShakeActionEvent>.Subscribe(ExplosionCameraShake);
+        }
+
+        private void OnDisable()
+        {
+            EventBus<ShakeActionEvent>.Unsubscribe(ExplosionCameraShake);
+        }
+
+        public void ExplosionCameraShake(ShakeActionEvent @event)
+        {
+            if (@event.IsPlaySound)
+            {
+                effects[0].Play();
+            }
         }
     }
 }
