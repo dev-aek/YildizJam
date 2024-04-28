@@ -1,4 +1,5 @@
 using System;
+using Atmosfer;
 using Cinemachine;
 using EventBus;
 using EventBus.Events;
@@ -15,6 +16,7 @@ namespace Puzzle.Valve
         [SerializeField] private Transform correctIndicator;
         [SerializeField] private CinemachineVirtualCamera virtualCamera;
         [SerializeField] private PlayerInput playerInput;
+        [SerializeField] private GameObject tutorialUI;
 
         [Space(10)]
         [Header("Properties")]
@@ -41,6 +43,7 @@ namespace Puzzle.Valve
             playerInput.enabled = false;
             virtualCamera.Priority = 9;
             correctIndicator.localRotation = Quaternion.Euler(correctAngle, 0, correctIndicator.localRotation.z);
+            RotateRandom();
         }
 
         public void SetInteract(bool value)
@@ -48,6 +51,8 @@ namespace Puzzle.Valve
             _canRotate = value;
             virtualCamera.Priority = value ? 11 : 9;
             playerInput.enabled = value;
+            tutorialUI.SetActive(!value);
+            EventBus<InteractionTutorialEvent>.Dispatch(new InteractionTutorialEvent { PuzzleLevel = LevelEnum.Valve, IsShow = value});
         }
         
         public void OnRotate(InputAction.CallbackContext obj)
@@ -66,6 +71,8 @@ namespace Puzzle.Valve
                         _isTimeAdded = true;
                         EventBus<TimeAwardEvent>.Dispatch(new TimeAwardEvent { Time = 10 });
                     }
+
+                    _canRotate = false;
                     _valveCompleted = true;
                     EventBus<ValveCompletedEvent>.Dispatch(new ValveCompletedEvent { IsCompleted = true });
                 }
@@ -96,6 +103,21 @@ namespace Puzzle.Valve
                 valve.localRotation = Quaternion.Lerp(valve.localRotation, targetRotation, rotationSpeed * Time.deltaTime);
                 indicator.localRotation = Quaternion.Lerp(indicator.localRotation, targetRotation, rotationSpeed * Time.deltaTime);
             }
+        }
+
+        private void RotateRandom()
+        {
+            float randomAngle = UnityEngine.Random.Range(minAngle, maxAngle);
+
+            // Ensure the random angle is not within the tolerance range of the correct angle
+            while (Mathf.Abs(randomAngle - correctAngle) <= tolerance * 3)
+            {
+                randomAngle = UnityEngine.Random.Range(minAngle, maxAngle);
+            }
+
+            Quaternion randomRotation = Quaternion.Euler(randomAngle, 0, valve.localRotation.z);
+            valve.localRotation = randomRotation;
+            indicator.localRotation = randomRotation;
         }
     }
 }
