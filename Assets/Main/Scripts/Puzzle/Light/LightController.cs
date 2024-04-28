@@ -52,8 +52,7 @@ namespace Puzzle.Light
             if (obj.phase == InputActionPhase.Canceled)
             {
                 float angleDifference = Quaternion.Angle(light.localRotation, Quaternion.Euler(correctAngle, 0, light.localRotation.z));
-
-                Debug.Log("Angle Difference: " + angleDifference);
+                
                 if (angleDifference <= tolerance && !_lightCompleted)
                 {
                     if (!_isTimeAdded)
