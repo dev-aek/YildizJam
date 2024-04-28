@@ -39,9 +39,5 @@ namespace Timeline
             
         }
 
-        public void OpenScene()
-        {
-            SceneManager.LoadScene("Deneme 3");
-        }
     }
 }
